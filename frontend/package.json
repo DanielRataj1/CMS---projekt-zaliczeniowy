@@ -1,0 +1,18 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "main": "pages/index.js",
+  "repository": "https://github.com/Mehirion/CMS---projekt-zaliczeniowy",
+  "author": "Chlopaki z Barakow",
+  "license": "NIE TEDY",
+  "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.14",
+    "axios": "^1.6.8",
+    "next": "^14.1.4",
+    "nvm": "^0.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
