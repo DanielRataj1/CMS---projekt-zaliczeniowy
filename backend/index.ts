@@ -1,8 +1,10 @@
 import AdminJS from 'adminjs';
 import express from 'express';
+
 import AdminJSExpress from '@adminjs/express';
 import Adapter, { Database, Resource } from '@adminjs/sql';
-// import cors from 'cors'
+import cors from 'cors';
+
 
 const PORT = 3001;
 
@@ -17,13 +19,14 @@ AdminJS.registerAdapter({
 const start = async () => {
 	const app = express();
 
-	// app.use(
-  //   cors({
-  //     origin: '*',
-  //     credentials: true, //access-control-allow-credentials:true
-  //     optionSuccessStatus: 200,
-  //   })
-  // );
+	app.use(
+    
+    cors({
+      origin: '*',
+      credentials: true, //access-control-allow-credentials:true
+      //optionSuccessStatus: 200,
+    })
+  );
 
 	// This facilitates the connection to the postgres database
 	const db = await new Adapter('postgresql', {

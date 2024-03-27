@@ -7,9 +7,10 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index"
+    "start": "tsc && node dist/index"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "ts-node": "^10.9.1",
     "tslib": "^2.6.2",
     "typescript": "^5.4.3"
@@ -18,8 +19,11 @@
     "@adminjs/express": "^6.1.0",
     "@adminjs/sql": "^2.2.1",
     "adminjs": "^7.7.4",
+    "cors": "^2.8.5",
     "express": "^4.19.1",
     "express-formidable": "^1.2.0",
-    "express-session": "^1.18.0"
+    "express-session": "^1.18.0",
+    "next-connect": "^1.0.0",
+    "nextjs-cors": "^2.2.0"
   }
 }
