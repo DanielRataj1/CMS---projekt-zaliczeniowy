@@ -6,7 +6,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev": "ts-node ./index.ts"
+    "build": "tsc",
+    "start": "node dist/index"
   },
   "devDependencies": {
     "ts-node": "^10.9.1",
