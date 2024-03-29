@@ -17,16 +17,16 @@ AdminJS.registerAdapter({
 
 
 const start = async () => {
-	const app = express();
+  const app = express();
 
-	app.use(
-    
+  app.use(
     cors({
-      origin: '*',
-      credentials: true, //access-control-allow-credentials:true
-      //optionSuccessStatus: 200,
+      origin: '*', // Zezwól na wszystkie źródła (to może być ustawienie tymczasowe w celu rozwiązania problemu)
+      credentials: true, // Ustawienie na true umożliwia przesyłanie plików cookie w żądaniach
     })
   );
+
+  app.options('*', cors());
 
 	// This facilitates the connection to the postgres database
 	const db = await new Adapter('postgresql', {

@@ -4,7 +4,7 @@
   "main": "pages/index.js",
   "repository": "https://github.com/Mehirion/CMS---projekt-zaliczeniowy",
   "author": "Chlopaki z Barakow",
-  "license": "NIE TEDY",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev"
   },
