@@ -13,18 +13,24 @@
 <h2 class="aritcles__heading">Najnowsze Posty</h2>
 
 <section class="aritcles-ul">
-  <ul class="aritcle-ul">
-
+  <ul class="article-ul">
     <% data.forEach(post => { %>
+
     <li>
-      <a href="#">
+      <a href="/post/<%= post._id %>">
         <span><%= post.title %></span>
-        <span class="article-list__date"> <% post.createdAt %></span>
+        <span class="article-list__date"
+          ><%= post.createdAt.toDateString() %></span
+        >
       </a>
     </li>
     <% }) %>
-
   </ul>
 
-  <a href="#" class="pagination">&lt; Pokaż starsze posty</a>
+<% if (nextPage !== null) { %>
+  <a href="/?page=<%= nextPage %>" class="pagination">&lt; Pokaż starsze posty</a>
+<% } %>
+
+
+
 </section>
