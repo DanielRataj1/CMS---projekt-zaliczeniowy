@@ -1,0 +1,36 @@
+<div class="author">
+  <h1 class="author__heading">Siema, działa</h1>
+  <p class="author__body">Docięta</p>
+</div>
+
+<img
+  src="/img/img-zdjeciegrudybezciuchow.jpg"
+  alt="piesek lea"
+  class="hero-image"
+  width="981"
+  height="528"
+/>
+<h2 class="aritcles__heading">Najnowsze Posty</h2>
+
+<section class="aritcles-ul">
+  <ul class="article-ul">
+    <% data.forEach(post => { %>
+
+    <li>
+      <a href="/post/<%= post._id %>">
+        <span><%= post.title %></span>
+        <span class="article-list__date"
+          ><%= post.createdAt.toDateString() %></span
+        >
+      </a>
+    </li>
+    <% }) %>
+  </ul>
+
+<% if (nextPage !== null) { %>
+  <a href="/?page=<%= nextPage %>" class="pagination">&lt; Pokaż starsze posty</a>
+<% } %>
+
+
+
+</section>
