@@ -9,7 +9,7 @@ router.get("", async (req, res) => {
       description: "Blog NodeJS/Express/MongoDB",
     };
 
-    let perPage = 10;
+    let perPage = 5;
     let page = req.query.page || 1;
 
     const data = await Post.aggregate([{ $sort: { createdAt: -1 } }])
