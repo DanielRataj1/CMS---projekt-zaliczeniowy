@@ -1,84 +1,61 @@
-const express = require("express")
-const router = express.Router()
-const Post = require('../models/Post')
+const express = require("express");
+const router = express.Router();
+const Post = require("../models/Post");
 
-router.get('', async (req, res) => {
-try {
-  const locals = {
-    title: "CMS Projekt Blog",
-    description: "Blog NodeJS/Express/MongoDB",
-  }
+router.get("", async (req, res) => {
+  try {
+    const locals = {
+      title: "CMS Projekt Blog",
+      description: "Blog NodeJS/Express/MongoDB",
+    };
 
+    let perPage = 10;
+    let page = req.query.page || 1;
 
-  let perPage = 10;
-  let page = req.query.page || 1
-
-  const data = await Post.aggregate([ { $sort: {createdAt: -1 } } ])
-  .skip(perPage * page - perPage)
-  .limit(perPage)
-  .exec()
+    const data = await Post.aggregate([{ $sort: { createdAt: -1 } }])
+      .skip(perPage * page - perPage)
+      .limit(perPage)
+      .exec();
 
     const count = await Post.countDocuments({});
     const nextPage = parseInt(page) + 1;
     const hasNextPage = nextPage <= Math.ceil(count / perPage);
 
-    res.render('index', { 
+    res.render("index", {
       locals,
       data,
       current: page,
       nextPage: hasNextPage ? nextPage : null,
-      currentRoute: '/'
+      currentRoute: "/",
     });
 
-
-
-  res.render('index', {locals, data})
-} catch (error) {
-  console.log(error)
-}
+    res.render("index", { locals, data });
+  } catch (error) {
+    console.log(error);
+  }
 });
-
-
-
-
-
-
-// backup
-// router.get('', async (req, res) => {
-//   const locals = {
-//     title: "CMS Projekt Blog",
-//     description: "Blog NodeJS/Express/MongoDB",
-//   };
-
-// try {
-//   const data = await Post.find()
-//   res.render('index', {locals, data})
-// } catch (error) {
-//   console.log(error)
-// }
-// });
-
-
 
 router.get('/post/:id', async (req, res) => {
-try {
-  let slug = req.params.id
+  try {
+    let slug = req.params.id
 
+    const data = await Post.findById({ _id: slug })
 
-  const data = await Post.findById({ _id: slug })
+    const locals = {
+      title: data.title,
+      description: "Simple Blog created with NodeJs, Express & MongoDb.",
+    }
 
-  const locals = {
-    title: data.title,
-    description: "Blog NodeJS/Express/MongoDB",
-  };
+    res.render('post', { 
+      locals,
+      data,
+      currentRoute: `/post/${slug}`
+    });
+  } catch (error) {
+    console.log(error)
+  }
 
-  res.render('post', {locals, data})
-} catch (error) {
-  console.log(error)
-}
-});
-
-
+})
 
 router.get("/about", (req, res) => {
   const locals = {
@@ -98,6 +75,20 @@ router.get("/contact", (req, res) => {
 
 module.exports = router;
 
+// backup
+// router.get('', async (req, res) => {
+//   const locals = {
+//     title: "CMS Projekt Blog",
+//     description: "Blog NodeJS/Express/MongoDB",
+//   };
+
+// try {
+//   const data = await Post.find()
+//   res.render('index', {locals, data})
+// } catch (error) {
+//   console.log(error)
+// }
+// });
 
 // // test bazy danych
 // function insertPostData (){
