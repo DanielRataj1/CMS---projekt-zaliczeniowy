@@ -10,7 +10,7 @@ try {
   }
 
 
-  let perPage = 5;
+  let perPage = 10;
   let page = req.query.page || 1
 
   const data = await Post.aggregate([ { $sort: {createdAt: -1 } } ])
@@ -60,6 +60,23 @@ try {
 
 
 
+router.get('/post/:id', async (req, res) => {
+try {
+  let slug = req.params.id
+
+
+  const data = await Post.findById({ _id: slug })
+
+  const locals = {
+    title: data.title,
+    description: "Blog NodeJS/Express/MongoDB",
+  };
+
+  res.render('post', {locals, data})
+} catch (error) {
+  console.log(error)
+}
+});
 
 
 
@@ -82,11 +99,27 @@ router.get("/contact", (req, res) => {
 module.exports = router;
 
 
-//test bazy danych
+// // test bazy danych
 // function insertPostData (){
 //   Post.insertMany([
 //     {
-//       title:"Tworzenie bloga",
+//       title:"Tworzenie bloga1",
+//       body:"Treść wpisz tutaj"
+//     },
+//     {
+//       title:"Tworzenie bloga2",
+//       body:"Treść wpisz tutaj"
+//     },
+//     {
+//       title:"Tworzenie bloga3",
+//       body:"Treść wpisz tutaj"
+//     },
+//     {
+//       title:"Tworzenie bloga4",
+//       body:"Treść wpisz tutaj"
+//     },
+//     {
+//       title:"Tworzenie bloga5",
 //       body:"Treść wpisz tutaj"
 //     },
 //   ])
