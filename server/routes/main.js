@@ -35,6 +35,27 @@ router.get("", async (req, res) => {
   }
 });
 
+router.get("/page", async (req, res) => {
+  try {
+    const locals = {
+      title: "CMS Projekt Blog",
+      description: "Blog NodeJS/Express/MongoDB",
+    };
+
+    res.render("index", {
+      locals,
+      data,
+      current: page,
+      nextPage: hasNextPage ? nextPage : null,
+      currentRoute: "/",
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+
+
 router.get('/post/:id', async (req, res) => {
   try {
     let slug = req.params.id
