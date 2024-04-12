@@ -35,24 +35,24 @@ router.get("", async (req, res) => {
   }
 });
 
-router.get("/page", async (req, res) => {
-  try {
-    const locals = {
-      title: "CMS Projekt Blog",
-      description: "Blog NodeJS/Express/MongoDB",
-    };
+// router.get("/page", async (req, res) => {
+//   try {
+//     const locals = {
+//       title: "CMS Projekt Blog",
+//       description: "Blog NodeJS/Express/MongoDB",
+//     };
 
-    res.render("index", {
-      locals,
-      data,
-      current: page,
-      nextPage: hasNextPage ? nextPage : null,
-      currentRoute: "/",
-    });
-  } catch (error) {
-    console.log(error);
-  }
-});
+//     res.render("index", {
+//       locals,
+//       data,
+//       current: page,
+//       nextPage: hasNextPage ? nextPage : null,
+//       currentRoute: "/",
+//     });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
 
 
 
@@ -91,10 +91,10 @@ router.get("/contact", (req, res) => {
     title: "CMS Projekt Blog",
     description: "Blog NodeJS/Express/MongoDB",
   };
-  res.render("contact", { locals });
+  res.render("contact", { locals })
 });
 
-module.exports = router;
+module.exports = router
 
 // backup
 // router.get('', async (req, res) => {
@@ -115,23 +115,23 @@ module.exports = router;
 // function insertPostData (){
 //   Post.insertMany([
 //     {
-//       title:"Tworzenie bloga1",
+//       title:"Tworzenie bloga6",
 //       body:"Treść wpisz tutaj"
 //     },
 //     {
-//       title:"Tworzenie bloga2",
+//       title:"Tworzenie bloga7",
 //       body:"Treść wpisz tutaj"
 //     },
 //     {
-//       title:"Tworzenie bloga3",
+//       title:"Tworzenie bloga8",
 //       body:"Treść wpisz tutaj"
 //     },
 //     {
-//       title:"Tworzenie bloga4",
+//       title:"Tworzenie bloga9",
 //       body:"Treść wpisz tutaj"
 //     },
 //     {
-//       title:"Tworzenie bloga5",
+//       title:"Tworzenie bloga10",
 //       body:"Treść wpisz tutaj"
 //     },
 //   ])

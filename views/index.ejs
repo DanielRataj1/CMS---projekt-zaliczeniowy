@@ -27,10 +27,27 @@
     <% }) %>
   </ul>
 
-<% if (nextPage !== null) { %>
-  <a href="/?page=<%= nextPage %>" class="pagination">&lt; Pokaż starsze posty</a>
-<% } %>
-
-
-
-</section>
+  <!-- <script>
+    function changePage() {
+      var previousPage = localStorage.getItem("previousPage")
+      if (document.getElementById("butt").value === "Najnowsze posty") {
+        document.getElementById("butt").value = "Poprzednie posty"
+        document.getElementById("butt").href = "/?page=<%= nextPage %>"
+      } else {
+        document.getElementById("butt").value = "Najnowsze posty"
+        document.getElementById("butt").href = previousPage || "/"
+      }
+    }
+  </script> -->
+  
+  <!-- <#% if (nextPage !== null || nextPage !== 2,3,4,5) { %> 
+    <a href="/?page=<%= nextPage %>"><input onclick="changePage()" value="Poprzednie posty" type="button" id="butt"></a>
+    <#% } %>
+    <#% if (nextPage !== null && nextPage == 2) {  %>
+    <a href="/?page=1"><input onclick="changePage()" value="1" type="button" id="butt"></a>
+    <a href="/?page=2"><input onclick="changePage()" value="2" type="button" id="butt"></a>
+    <a href="/?page=3"><input onclick="changePage()" value="3" type="button" id="butt"></a>
+  <#% } %>
+  <#% if (nextPage !== null && nextPage == 2) {  %>
+    <a href="/?page=<%= nextPage %>"><input onclick="changePage()" value="2" type="button" id="butt"></a>
+  <#% } %> -->
