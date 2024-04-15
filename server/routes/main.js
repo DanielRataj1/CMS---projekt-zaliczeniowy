@@ -29,7 +29,6 @@ router.get("", async (req, res) => {
       currentRoute: "/",
     });
 
-    res.render("index", { locals, data });
   } catch (error) {
     console.log(error);
   }
