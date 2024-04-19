@@ -16,7 +16,7 @@
     font-family: 'Poppins', sans-serif;
     color: var(--black);
     font-size: var(--font-size-base);
-    background-color: #FAF5EE;
+    background-color: #ffffff;
     background-image: url("/img/img-noise-361x370.png");
     margin: 0;
   }
@@ -109,6 +109,13 @@
     grid-area: logo;
   }
   
+  .header__logoAD{
+    font-weight: 800;
+    font-size: 25px;
+    text-decoration: none;
+    grid-area: logo;
+  }
+
   .header__logo:hover {
     text-decoration: underline;
   }
@@ -168,6 +175,7 @@
   .header__nav ul a:hover {
     text-decoration: underline;
   }
+  
   
   /* Author - HomePage */
   .author {
@@ -234,22 +242,23 @@
     font-size: 24px;
     cursor: pointer;
     transition: filter 0.1s;
+    /* filter: drop-shadow(0 0 0.75rem crimson); */
   }
   
   .article-ul li:not(:last-child) {
     border-bottom: 1px solid var(--gray-light);
   }
   
-  .article-ul li:hover {
-    filter: none;
-  }
+  /* .article-ul li:hover {
+    filter: drop-shadow(0 0 0.75rem crimson);
+  } */
   
   .article-ul:hover li {
-    filter: blur(3px);
+    filter: none;
   }
   
   .article-ul:hover li:hover {
-    filter: none;
+    filter: drop-shadow(0 0 0.75rem rgb(49, 49, 49));
   }
   
   
@@ -257,7 +266,19 @@
     white-space: pre-wrap;
   }
   
-  
+  #butt{
+  background-color: #ffffff; /* Green */
+  border-radius: 2px;
+  color: rgb(0, 0, 0);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+ border-radius: 15px;
+}
+
+
   /* Footer */
   .footer {
     margin: 4rem;
